@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>HELLO</title>
+</head>
+<body>
+<!-- OGNL -->
+<p th:text="${new java.util.Date().toString()}"></p>
+<p th:text="${#dates.format(new java.util.Date(), 'yyyy-MM-dd HH:mm')}"></p>
+<p th:text="${#numbers.formatInteger(123,5)}"></p>
+<p th:text="${#strings.toUpperCase('Welcome to Spring Boot')}"></p>
+
+
+<h1>CYWELL MEMBERS</h1>
+
+<form role="form" th:action="@{/memberList}"
+      th:object="${loginVO}"  action="#" id="loginForm" method="post">
+
+    <input name="searchNm" th:value="${params.searchNm}">
+    <button type="submit">Search</button>
+
+
+<table>
+    <tr>
+        <th>이름</th>
+        <th>email</th>
+    </tr>
+    <tr th:each="list: ${resultMap.list}">
+        <td th:text="${list.USERNM != null} ? ${list.USERNM}">Onions</td>
+        <td th:text="${list.EMAIL != null} ? ${list.EMAIL}">Onions</td>
+    </tr>
+</table>
+
+
+
+</form>
+</body>
+</html>
