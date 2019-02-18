@@ -1,39 +1,89 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="kr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>HELLO</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Cywell Members LIST</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+
+
 </head>
+
+<script src="https://unpkg.com/vue"></script>
+
 <body>
-<!-- OGNL -->
-<p th:text="${new java.util.Date().toString()}"></p>
-<p th:text="${#dates.format(new java.util.Date(), 'yyyy-MM-dd HH:mm')}"></p>
-<p th:text="${#numbers.formatInteger(123,5)}"></p>
-<p th:text="${#strings.toUpperCase('Welcome to Spring Boot')}"></p>
+
+    <script type="text/javascript">
 
 
-<h1>CYWELL MEMBERS</h1>
+        var a = "[[${username}]]";
 
-<form role="form" th:action="@{/memberList}"
-      th:object="${loginVO}"  action="#" id="loginForm" method="post">
-
-    <input name="searchNm" th:value="${params.searchNm}">
-    <button type="submit">Search</button>
-
-
-<table>
-    <tr>
-        <th>이름</th>
-        <th>email</th>
-    </tr>
-    <tr th:each="list: ${resultMap.list}">
-        <td th:text="${list.USERNM != null} ? ${list.USERNM}">Onions</td>
-        <td th:text="${list.EMAIL != null} ? ${list.EMAIL}">Onions</td>
-    </tr>
-</table>
+        function abc() {
+            alert(a);
+        }
 
 
 
+    </script>
+
+
+
+    <script type="text/javascript">
+
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'kim ji tae'
+            }
+        })
+    </script>
+
+
+<form role="form" th:action="@{/memberList}" th:object="${loginVO}" action="#" id="loginForm" method="post">
+
+    <div id="app">
+        <p>{{ message }}</p>
+    </div>
+
+    <div class="container">
+
+        <div class="jumbotron mt-3">
+
+            <h1 th:text="'Welcome to ' + ${username}"></h1>
+            <p th:text="'현재시간 : ' + ${#dates.format(new java.util.Date(), 'yyyy-MM-dd HH:mm')}"></p>
+            <p style="float:right;" class="btn pull-right" th:text="'Total : ' + ${cnt.CNT} + '명'"></p>
+
+            <div class="input-group mb-3">
+                <input name="searchNm" th:value="${params.searchNm}" class="form-control" placeholder="이름">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">찾기11</button>
+                    <!--<input type="button"  id="test1" value="Alert!" th:onclick=th:onclick="|javascript:abc()|">-->
+                    <a th:text="thtext" th:onclick="|javascript:abc()|"></a>
+                </div>
+            </div>
+
+            <table class="table table-striped">
+                <tr>
+                    <th>이름</th>
+                    <th>ID</th>
+                    <th>email</th>
+                </tr>
+                <tr th:each="list: ${resultMap.list}">
+                    <td th:text="${list.USERNM}">USERNM</td>
+                    <td th:text="${list.USERID}">USERID</td>
+                    <td th:text="${list.EMAIL}">EMAIL</td>
+                </tr>
+            </table>
+        </div>
+
+    </div> <!-- /container -->
 </form>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
 </body>
 </html>

@@ -15,6 +15,7 @@ public class MemberService {
     public Map<String, Object> selectUserList(Map<String,Object> searchMap) throws Exception {
         Map<String,Object> map = new HashMap<String, Object>();
         map.put("list", memberMapper.selectMemberList(searchMap));
+        map.put("cnt", memberMapper.selectMemberListCnt(searchMap));
         return map;
     }
 

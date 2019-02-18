@@ -5,19 +5,40 @@
     <select id="selectMemberList" parameterType="hashmap" resultType="hashmap">
             SELECT
                  *
-            FROM
-                TB_USER
-            WHERE 1=1
+        FROM
+        TB_USER
+        <where>
             <if test="searchNm != null and searchNm != ''">
-		        <choose>
-		            <when test="searchName == 0">
-                        AND	usernm LIKE '%' || #{searchNm} || '%'
-					</when>
-					<otherwise>
+                <choose>
+                    <when test="searchName == 0">
                         AND usernm LIKE CONCAT('%',#{searchNm},'%')
-					</otherwise>
-				</choose>
-			</if>
+                    </when>
+                    <otherwise>
+                        AND usernm LIKE CONCAT('%',#{searchNm},'%')
+                    </otherwise>
+                </choose>
+            </if>
+        </where>
+        ORDER BY USERNM
+    </select>
+
+    <select id="selectMemberListCnt" parameterType="hashmap" resultType="hashmap">
+        SELECT
+        COUNT(1) as CNT
+        FROM
+        TB_USER
+        <where>
+            <if test="searchNm != null and searchNm != ''">
+                <choose>
+                    <when test="searchName == 0">
+                        AND usernm LIKE CONCAT('%',#{searchNm},'%')
+                    </when>
+                    <otherwise>
+                        AND usernm LIKE CONCAT('%',#{searchNm},'%')
+                    </otherwise>
+                </choose>
+            </if>
+        </where>
     </select>
 
 
