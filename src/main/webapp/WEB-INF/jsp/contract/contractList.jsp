@@ -9,7 +9,7 @@
     <title>Cywell Members LIST</title>
 
     <!-- Bootstrap core CSS-->
-    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/bootstrap.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -23,7 +23,7 @@
 
         <div class="jumbotron mt-3">
 
-            <h1>Cywellsystem</h1>
+            <h1>Cywellsystem COntract</h1>
             <p style="float:right;" class="btn pull-right">Total : ${cnt.CNT}명</p>
 
             <div class="input-group mb-3">

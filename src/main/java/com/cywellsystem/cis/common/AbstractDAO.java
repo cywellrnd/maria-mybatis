@@ -1,4 +1,4 @@
-package com.cywellsystem.cis.user.common;
+package com.cywellsystem.cis.common;
 
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;

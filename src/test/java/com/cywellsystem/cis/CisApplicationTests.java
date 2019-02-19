@@ -1,4 +1,4 @@
-package com.cywellsystem.cis.user;
+package com.cywellsystem.cis;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

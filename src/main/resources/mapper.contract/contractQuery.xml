@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="contractQuery">
+
+    <select id="selectContractList" parameterType="hashmap" resultType="hashmap">
+            SELECT
+                 *
+        FROM
+        TB_CONTRACT
+        <where>
+            <if test="searchNm != null and searchNm != ''">
+                <choose>
+                    <when test="searchName == 0">
+                        AND CONTRACT_TITLE LIKE CONCAT('%',#{searchNm},'%')
+                    </when>
+                    <otherwise>
+                        AND CONTRACT_TITLE LIKE CONCAT('%',#{searchNm},'%')
+                    </otherwise>
+                </choose>
+            </if>
+        </where>
+        ORDER BY SEQ DESC
+    </select>
+
+    <select id="selectContractListCnt" parameterType="hashmap" resultType="hashmap">
+        SELECT
+        COUNT(1) as CNT
+        FROM
+        TB_USER
+        <where>
+            <if test="searchNm != null and searchNm != ''">
+                <choose>
+                    <when test="searchName == 0">
+                        AND CONTRACT_TITLE LIKE CONCAT('%',#{searchNm},'%')
+                    </when>
+                    <otherwise>
+                        AND CONTRACT_TITLE LIKE CONCAT('%',#{searchNm},'%')
+                    </otherwise>
+                </choose>
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

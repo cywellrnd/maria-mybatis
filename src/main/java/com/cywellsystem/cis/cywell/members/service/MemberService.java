@@ -1,6 +1,6 @@
-package com.cywellsystem.cis.user.members.service;
+package com.cywellsystem.cis.cywell.members.service;
 
-import com.cywellsystem.cis.user.members.mapper.MemberMapper;
+import com.cywellsystem.cis.cywell.members.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
