@@ -1,6 +1,6 @@
-package com.cywellsystem.cis.user.members.controller;
+package com.cywellsystem.cis.cywell.contract.controller;
 
-import com.cywellsystem.cis.user.members.service.MemberService;
+import com.cywellsystem.cis.cywell.contract.service.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,19 +13,19 @@ import java.util.Date;
 import java.util.Map;
 
 @Controller
-public class MemberController {
+public class ContractController {
 
     @Autowired
-    MemberService memberService;
+    ContractService contractService;
 
 //    @RequestMapping(value="/memberList")
-    @RequestMapping(value="/")
-    public String selectBoardList(@RequestParam Map<String, Object> params,
+    @RequestMapping(value="/contract")
+    public String selectContractList(@RequestParam Map<String, Object> params,
                                   @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
                                   @RequestParam(value = "pageUnit", required = false, defaultValue = "15") int pageUnit, ModelMap model,
                                   HttpSession session, HttpServletRequest request) throws Exception {
 
-        Map<String, Object> map = memberService.selectUserList(params);
+        Map<String, Object> map = contractService.selectContractList(params);
         Object cnt = map.get("cnt");
 
         model.put("params", params);
@@ -43,7 +43,7 @@ public class MemberController {
         System.out.println("params = [" + params + "], pageNo = [" + pageNo + "], pageUnit = [" + pageUnit + "], model = [" + model + "], session = [" + session + "], request = [" + request + "]");
 
 //        return "members/membersList";
-        return "membersList";
+        return "members/membersList";
     }
 
 }

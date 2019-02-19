@@ -1,6 +1,6 @@
-package com.cywellsystem.cis.user.members.mapper;
+package com.cywellsystem.cis.cywell.members.mapper;
 
-import com.cywellsystem.cis.user.common.AbstractDAO;
+import com.cywellsystem.cis.common.AbstractDAO;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

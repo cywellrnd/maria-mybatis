@@ -1,4 +1,4 @@
-package com.cywellsystem.cis.user;
+package com.cywellsystem.cis;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

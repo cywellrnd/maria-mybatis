@@ -1,4 +1,4 @@
-package com.cywellsystem.cis.user.config;
+package com.cywellsystem.cis.config;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -16,8 +16,8 @@ public class DatabaseConfig {
     public SqlSessionFactory sqlSessionFatory(DataSource datasource) throws Exception{
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
         sqlSessionFactory.setDataSource(datasource);
-        sqlSessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:/mapper/*.xml"));
-        return (SqlSessionFactory) sqlSessionFactory.getObject();
+        sqlSessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:/mapper/*/*.xml"));
+        return sqlSessionFactory.getObject();
     }
 
     @Bean
